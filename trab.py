@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-# -*- coding: utf-8 -*-
-
 import numpy as np
 import cv2 as cv
 
@@ -12,16 +10,18 @@ def thresholding(img: np.ndarray, t: int, isAbove: bool, brightness: int) -> Non
   Recebe de parâmetros:
   img: a imagem que será utilizada
   t: o valor de limiarização
-  isAbove: valor boolean que controla ALGUMA COISA 
+  isAbove: variável que controla o fluxo de alteração de brilho em relação ao limiar 
   brightness: valor de brilho que será utilizado
   """
 
-  if isAbove:
-    x = img >= t
+  if isAbove:     # delimita o fluxo de alteração de brilho
+    x = img >= t  # se isAbove for True, para cada pixel com valor >= t será alterado o brilho
   else:
-    x = img < t
+    x = img < t   # se isAbove for False, o inverso ocorre
+
   img = img.astype(int)
-  if brightness < 0:
+
+  if brightness < 0:  # tratamento de valor de brilho, devendo estar entre o intervalo 0 <= brightness <= 255
     img[x] = np.maximum(img[x] + brightness, 0)
   else:
     img[x] = np.minimum(img[x] + brightness, 255)
