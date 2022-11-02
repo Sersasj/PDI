@@ -6,16 +6,25 @@ import numpy as np
 import cv2 as cv
 
 
-def limiarizacao(img: np.ndarray, t: int, acima: bool, brilho: int) -> None:
-  if acima:
+def thresholding(img: np.ndarray, t: int, isAbove: bool, brightness: int) -> None:
+  """Função que realiza a limiarização da imagem.
+
+  Recebe de parâmetros:
+  img: a imagem que será utilizada
+  t: o valor de limiarização
+  isAbove: valor boolean que controla ALGUMA COISA 
+  brightness: valor de brilho que será utilizado
+  """
+
+  if isAbove:
     x = img >= t
   else:
     x = img < t
   img = img.astype(int)
-  if brilho < 0:
-    img[x] = np.maximum(img[x] + brilho, 0)
+  if brightness < 0:
+    img[x] = np.maximum(img[x] + brightness, 0)
   else:
-    img[x] = np.minimum(img[x] + brilho, 255)
+    img[x] = np.minimum(img[x] + brightness, 255)
   img = img.astype(np.uint8)
 
   cv.imshow("teste", img)
@@ -42,7 +51,7 @@ def main():
   #acima = bool(input("Digite False ou True "))
   print("#--------------------------------------------------------------------------------------------#")
 
-  limiarizacao(cv.imread("gato.jpg", cv.IMREAD_GRAYSCALE), 100, True, 180)
+  thresholding(cv.imread("gato.jpg", cv.IMREAD_GRAYSCALE), 100, True, 180)
 
 
 if __name__ == "__main__":
