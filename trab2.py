@@ -4,7 +4,7 @@ import cv2 as cv
 
 def invertHue(h, m, x):
     # faz o cálculo dos limites superiores e inferiores
-    # com base em 180 por limitações da bibilioteca cv2
+    # com base em 180 por aspectos da bibilioteca cv2
     upper = np.mod((m + x)/2, 180)
     lower = np.mod((m - x)/2, 180)
 
@@ -54,16 +54,16 @@ def hueAlteration(img: np.ndarray, m: int, x: int) -> None:
 
     # mostra a imagem
     cv.imshow('Imagem Alterada', rgb)
+    cv.imwrite("imgAlterada2.png",rgb)
     cv.waitKey(0)
     cv.destroyAllWindows()
     cv.waitKey(1)
 
 
 def main():
-    a = cv.imread('coelho.jpg')
+    a = cv.imread("unknown.png")
     m = int(input("Matiz: "))
     x = int(input("X: "))
-
     hueAlteration(a, m, x)
 
 
