@@ -54,7 +54,6 @@ def hueAlteration(img: np.ndarray, m: int, x: int) -> None:
 
     # mostra a imagem
     cv.imshow('Imagem Alterada', rgb)
-    cv.imwrite("imgAlterada2.png",rgb)
     cv.waitKey(0)
     cv.destroyAllWindows()
     cv.waitKey(1)
