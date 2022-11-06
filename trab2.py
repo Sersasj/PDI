@@ -54,15 +54,18 @@ def hueAlteration(img: np.ndarray, m: int, x: int) -> None:
 
     # mostra a imagem
     cv.imshow('Imagem Alterada', rgb)
+    cv.imwrite("img_alt.png", rgb)
     cv.waitKey(0)
     cv.destroyAllWindows()
     cv.waitKey(1)
 
 
 def main():
-    a = cv.imread("unknown.png")
-    m = int(input("Matiz: "))
-    x = int(input("X: "))
+    a = cv.imread("colorCircle.png")
+    m = 120
+    x =  60
+    #m = int(input("Matiz: "))
+    #x = int(input("X: "))
     hueAlteration(a, m, x)
 
 
