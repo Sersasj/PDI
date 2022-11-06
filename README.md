@@ -17,4 +17,5 @@ O programa gera, como saída, uma imagem em tons de cinza com os valores de bril
 
 Feito em python
 Imagens utilizadas:
-Gato calvo, Cachorro pançudo, Coelho estiloso
+
+An Ancient Dark Night Descended Upon My Soul II (Ana Maria Pacheco) Journeys (Ana Maria Pacheco)
